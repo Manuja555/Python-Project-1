@@ -1,3 +1,5 @@
+import re
+
 class User:
     def __init__(self, name, email):
         self.name = name
@@ -19,7 +21,9 @@ class User:
         return "Account"
 
     def is_valid_email(self,email):
-        return None
+        # Simple regex for email validation
+        pattern = r'^[\w\.-]+@[\w\.-]+\.\w+$'
+        return re.match(pattern, email) is not None
 
 
     def __str__(self):
